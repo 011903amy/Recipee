@@ -47,7 +47,7 @@ const Recipe = () => {
       {store.isAdd && <ModalAddRecipe itemEdit={itemEdit} />}
       {store.isValidate && <ModalValidation />}
       {store.error && <ModalError />}
-      {store.isSuccess && <ToastSuccess />}
+      {store.success && <ToastSuccess />}
     </>
   );
 };

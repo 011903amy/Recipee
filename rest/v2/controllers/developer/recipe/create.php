@@ -1,7 +1,7 @@
 <?php
 $conn = null;
 $conn = checkDbConnection();
-$question = new Recipe($conn);
+$recipe = new Recipe($conn);
 
 if (array_key_exists("recipeid", $_GET)) {
     checkEndpoint();
@@ -23,7 +23,7 @@ $recipe->recipe_is_active = 1;
 $recipe->recipe_created = date("Y-m-d H:i:s");
 $recipe->recipe_datetime = date("Y-m-d H:i:s");
 
-isNameExist($recipe, $recipe->recipe_title);
+// isNameExist($recipe, $recipe->recipe_title);
 
 $query = checkCreate($recipe);
 returnSuccess($recipe, "recipe", $query);
