@@ -1,7 +1,8 @@
 
 import { imgPath } from '@/components/helpers/functions-general'
-import { LayoutDashboard, Megaphone, MousePointerClick, UtensilsCrossed } from 'lucide-react'
+import { Gauge, HandPlatter, LayoutDashboard, Megaphone, MousePointerClick, UtensilsCrossed } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
+import Category from '../category/Category'
 
 const SideNavigation = ({menu}) => {
   const links =[
@@ -14,6 +15,16 @@ const SideNavigation = ({menu}) => {
       title:"Recipe",
       slug: "/admin/recipe",
       icon:<UtensilsCrossed size={16}/>
+    },
+    {
+      title:"Category",
+      slug: "/admin/category",
+      icon:<HandPlatter size={16}/>
+    },
+    {
+      title:"Level",
+      slug: "/admin/level",
+      icon:<Gauge size={16}/>
     },
 
   ]

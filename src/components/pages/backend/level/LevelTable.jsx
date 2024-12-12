@@ -20,7 +20,7 @@ import IconNoData from "../partials/IconNoData";
 import IconServerError from "../partials/IconServerError";
 
 
-const FoodsTable = ({setItemEdit}) => {
+const LevelTable = ({setItemEdit}) => {
   const { store, dispatch } = React.useContext(StoreContext);
   const [isActive, setIsActive] = React.useState(0)
   const [id, setId] = React.useState(null)
@@ -30,26 +30,26 @@ const FoodsTable = ({setItemEdit}) => {
     error,
     data: result,
   } = useQueryData(
-    `/v2/recipe`, // endpoint
+    `/v2/level`, // endpoint
     "get", // method
-    "recipe"
+    "level"
   );
 
 
   let counter = 1;
   const handleDelete = (item) => {
     dispatch(setIsDelete(true));
-    setId(item.recipe_aid)
+    setId(item.level_aid)
   };
   const handleRestore = (item) => {
     dispatch(setIsConfirm(true));
     setIsActive(1)
-    setId(item.recipe_aid)
+    setId(item.level_aid)
   };
   const handleArchive = (item) => {
     dispatch(setIsConfirm(true));
     setIsActive(0)
-    setId(item.recipe_aid)
+    setId(item.level_aid)
   };
  
   const handleEdit = (item) => {
@@ -72,9 +72,7 @@ const FoodsTable = ({setItemEdit}) => {
                 <th>#</th>
                 <th>Status</th>
                 <th>Title</th>
-                <th>Category</th>
-                <th>Level</th>
-                <th>Serving</th>
+              
                 
                 <th></th>
               </tr>
@@ -106,15 +104,12 @@ const FoodsTable = ({setItemEdit}) => {
                 <tr key={key}>
                   <td>{counter++}.</td>
                   <td>
-                    <Pills isActive={item.recipe_is_active} />
+                    <Pills isActive={item.level_is_active} />
                   </td>
-                  <td>{item.recipe_title}</td>
-                  <td className="capitalize">{item.category_title}</td>
-                  <td className="capitalize">{item.level_title}</td>
-                  <td>{item.recipe_serving}</td>
+                  <td>{item.level_title}</td>
                   <td>
                     <ul className="table-action">
-                      {item.recipe_is_active ? (
+                      {item.level_is_active ? (
                         <>
                           <li>
                             <button
@@ -171,15 +166,15 @@ const FoodsTable = ({setItemEdit}) => {
       </div>
       {store.isDelete && (
         <ModalDelete
-          mysqlApiDelete={`/v2/recipe/${id}`}
-          queryKey="recipe"
+          mysqlApiDelete={`/v2/level/${id}`}
+          queryKey="level"
         />
       )}
 
       {store.isConfirm && (
         <ModalConfirm
-          queryKey="recipe"
-          mysqlApiArchive={`/v2/recipe/active/${id}`}
+          queryKey="level"
+          mysqlApiArchive={`/v2/level/active/${id}`}
           active={isActive}
         />
       )}
@@ -188,4 +183,4 @@ const FoodsTable = ({setItemEdit}) => {
   );
 };
 
-export default FoodsTable;
+export default LevelTable;

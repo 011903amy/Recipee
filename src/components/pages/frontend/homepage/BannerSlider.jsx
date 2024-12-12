@@ -7,7 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import useQueryData from '@/components/custom-hook/useQueryData'
 
+
 const BannerSlider = ({result}) => {
+
   const settings = {
     dots: false,
     infinite: true,
@@ -16,7 +18,7 @@ const BannerSlider = ({result}) => {
     slidesToScroll: 1,
     autoplay: true,
   };
-
+ 
  
   return (
     <section>
@@ -33,7 +35,7 @@ const BannerSlider = ({result}) => {
         <ul className='flex gap-5 mb-5'>
           <li className='flex gap-2 items-center'><Clock/>{item.recipe_prep_time}</li>
           <li className='flex gap-2 items-center'><Utensils/>{item.recipe_serving} serving</li>
-          <li className='flex gap-2 items-center'><HandPlatter/>{item.recipe_category}</li>
+          <li className='flex gap-2 items-center'><HandPlatter/>{item.category_title}</li>
         </ul>
 
         <p className='mb-5'>{item.recipe_description}</p>

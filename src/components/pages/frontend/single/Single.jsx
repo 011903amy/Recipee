@@ -40,7 +40,7 @@ const Single = () => {
         <ul className='flex gap-5 mb-5 justify-center'>
         <li className='flex gap-2 items-center'><Clock/>{getSingleRecipe() !== undefined && getSingleRecipe()[0].recipe_prep_time}</li>
         <li className='flex gap-2 items-center'><Utensils/>{getSingleRecipe() !== undefined && getSingleRecipe()[0].recipe_serving} serving</li>
-        <li className='flex gap-2 items-center'><HandPlatter/>{getSingleRecipe() !== undefined && getSingleRecipe()[0].recipe_category}</li>
+        <li className='flex gap-2 items-center'><HandPlatter/>{getSingleRecipe() !== undefined && getSingleRecipe()[0].category_title}</li>
           </ul>
           <p className='max-w-[600px] mx-auto'>{getSingleRecipe() !== undefined && getSingleRecipe()[0].recipe_description}</p>
 
