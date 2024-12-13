@@ -20,7 +20,7 @@ import IconNoData from "../partials/IconNoData";
 import IconServerError from "../partials/IconServerError";
 
 
-const FoodsTable = ({setItemEdit}) => {
+const RecipeTable = ({setItemEdit}) => {
   const { store, dispatch } = React.useContext(StoreContext);
   const [isActive, setIsActive] = React.useState(0)
   const [id, setId] = React.useState(null)
@@ -188,4 +188,4 @@ const FoodsTable = ({setItemEdit}) => {
   );
 };
 
-export default FoodsTable;
+export default RecipeTable;
