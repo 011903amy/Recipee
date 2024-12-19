@@ -119,6 +119,28 @@ class Recipe
         return $query;
     }
 
+    public function readAllByCategory()
+    {
+        try {
+            $sql = "select * ";
+            $sql .= "from ";
+            $sql .= "{$this->tblcategory} as category, ";
+            $sql .= "{$this->tbllevel} as level, ";
+            $sql .= "{$this->tblrecipe} as recipe ";
+            $sql .= "where category.category_aid = recipe.recipe_category_id ";
+            $sql .= "and level.level_aid = recipe.recipe_level_id ";
+            $sql .= "order by recipe.recipe_is_active desc, ";
+            $sql .= "recipe.recipe_title ";
+            $query = $this->connection->prepare($sql);
+            $query->execute([
+                "recipe_category_id" => $this->recipe_category_id,
+            ]);
+        } catch (PDOException $ex) {
+            $query = false;
+        }
+        return $query;
+    }
+
     // read limit
     public function readLimit()
     {

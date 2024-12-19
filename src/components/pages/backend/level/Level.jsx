@@ -28,8 +28,8 @@ const Level = () => {
             <Header title="Level" subtitle="Level System" />
             <div className="p-8">
               <div className="flex justify-between items-center">
-                <SearchBar />
-                <button className="btn btn-add" onClick={handleAdd}>
+                <div></div>
+                <button className="btn btn-add mb-5" type="reset" onClick={handleAdd}>
                   <Plus size={16} />
                   Add New
                 </button>
@@ -42,7 +42,7 @@ const Level = () => {
           </main>
         </div>
       </section>
-      {store.isAdd && <ModalAddLevel itemEdit={itemEdit} />}
+      {store.isAdd && <ModalAddLevel itemEdit={itemEdit} setIsAdd={setIsAdd} setItemEdit={setItemEdit}/>}
       {store.isValidate && <ModalValidation />}
       {store.error && <ModalError />}
       {store.success && <ToastSuccess />}

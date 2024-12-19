@@ -12,19 +12,19 @@ $response = new Response();
 $body = file_get_contents("php://input");
 $data = json_decode($body, true);
 
-$error = [];
-$returnData = [];
+// $error = [];
+// $returnData = [];
 
 if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
-    checkApiKey();
+    // checkApiKey();
     if (array_key_exists("levelid", $_GET)) {
 
         checkPayload($data);
         $level->level_aid = $_GET['levelid'];
         $level->level_is_active = trim($data["isActive"]);
+        checkId($level->level_aid);
         $level->level_datetime = date("Y-m-d H:i:s");
 
-        checkId($level->level_aid);
         $query = checkActive($level);
         http_response_code(200);
         returnSuccess($level, "level", $query);

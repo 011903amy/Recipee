@@ -28,21 +28,23 @@ const Category = () => {
             <Header title="Category" subtitle="Category System" />
             <div className="p-8">
               <div className="flex justify-between items-center">
-                <SearchBar />
-                <button className="btn btn-add" onClick={handleAdd}>
+                <div></div>
+                <button className="btn btn-add mb-5" type="reset" onClick={handleAdd}>
                   <Plus size={16} />
                   Add New
                 </button>
               </div>
 
-              <CategoryTable setItemEdit={setItemEdit}/>
+              <CategoryTable setItemEdit={setItemEdit} />
             </div>
 
             <Footer />
           </main>
         </div>
       </section>
-      {store.isAdd && <ModalAddCategory itemEdit={itemEdit} />}
+      {store.isAdd && (
+        <ModalAddCategory setIsAdd={setIsAdd} itemEdit={itemEdit} setItemEdit={setItemEdit} />
+      )}
       {store.isValidate && <ModalValidation />}
       {store.error && <ModalError />}
       {store.success && <ToastSuccess />}

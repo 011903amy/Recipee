@@ -30,8 +30,8 @@ const Recipe = () => {
             <Header title="Recipe" subtitle="Manage Kiosk Advertisement" />
             <div className="p-8">
               <div className="flex justify-between items-center">
-                <SearchBar />
-                <button className="btn btn-add" onClick={handleAdd}>
+                <div></div>
+                <button className="btn btn-add mb-5" type="reset" onClick={handleAdd}>
                   <Plus size={16} />
                   Add New
                 </button>
@@ -44,7 +44,7 @@ const Recipe = () => {
           </main>
         </div>
       </section>
-      {store.isAdd && <ModalAddRecipe itemEdit={itemEdit} />}
+      {store.isAdd && <ModalAddRecipe itemEdit={itemEdit} setIsAdd={setIsAdd}  setItemEdit={setItemEdit}/>}
       {store.isValidate && <ModalValidation />}
       {store.error && <ModalError />}
       {store.success && <ToastSuccess />}
