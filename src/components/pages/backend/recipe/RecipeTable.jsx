@@ -170,7 +170,7 @@ const RecipeTable = ({setItemEdit}) => {
                       <tr key={key} className="group relative cursor-pointer">
                         <td>{counter++}.</td>
                         <td>
-                          {item.food_is_active ? (
+                          {item.recipe_is_active ? (
                             <Pills text="Active" />
                           ) : (
                             <Pills text="Inactive" />
@@ -185,7 +185,7 @@ const RecipeTable = ({setItemEdit}) => {
                           className="opacity-0 group-hover:opacity-100"
                         >
                           <div className="flex items-center justify-end gap-2 mr-5">
-                            {item.category_is_active == 1 ? (
+                            {item.recipe_is_active == 1 ? (
                               <>
                                 <button
                                   type="button"
